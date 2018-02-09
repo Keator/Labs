@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vikings Recievers</title>
+</head>
+<body>
+
+
+<canvas id="myChart" width="400" height="400"></canvas>
+<script src="VikingsReceivers.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js" > </script>
+
+<script>
+
+
+var zeroTonineTeen = 0, twentyToThirty = 0, thirtyOneToFourty = 0, fourtyOneToFifty = 0, fiftyOneToSeventyFour = 0, seventyFiveToOneHundred = 0;
+for(var i = 0; i < myObject.length; i++){
+    if(myObject[i].REC <=19){
+        zeroTonineTeen +=1;
+    }
+    else if(myObject[i].REC >=20 && myObject[i].REC  <=30){
+        twentyToThirty +=1;
+    }
+    else if(myObject[i].REC >=31 && myObject[i].REC <=40){
+        thirtyOneToFourty +=1;
+    }
+    else if(myObject[i].REC >=41 && myObject[i].REC <=50){
+        fourtyOneToFifty +=1;
+    }
+    else if(myObject[i].REC >=51 && myObject[i].REC <=74){
+        fiftyOneToSeventyFour +=1;
+    }
+    else {
+        seventyFiveToOneHundred +=1;
+    }
+}
+
+</script>
+
+	<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["0-19","20-30","31-40","41-50","51-74","75-100"],
+            datasets: [
+            {
+                label: 'Recieptions Made ',
+                BackgroundColor: 'rgba(102, 0, 102, 1)',
+                borderColor: 'rgba(230, 195, 0, 1)',
+                borderWidth: 3,
+                data: [zeroTonineTeen, twentyToThirty, thirtyOneToFourty, fourtyOneToFifty, fiftyOneToSeventyFour, seventyFiveToOneHundred],
+
+            }]
+        },
+
+   options: {
+		scales: {
+			yAxis: [{
+				ticks: {
+					beginAtZero: true
+                        }	
+                    }]
+                }
+            }
+      });
+    </script>
+
+</body>
+</html>
